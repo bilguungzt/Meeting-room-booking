@@ -127,17 +127,6 @@ const CRUDmeetings = () => {
             justifyContent: "center",
           }}
         >
-          <label>Description</label>
-          <input
-            type="text"
-            value={createMeeting.Description}
-            onChange={(event) => {
-              setCreateMeeting({
-                ...createMeeting,
-                Description: event.target.value,
-              });
-            }}
-          />
           <label>Subject</label>
           <input
             type="text"
@@ -149,6 +138,18 @@ const CRUDmeetings = () => {
               });
             }}
           />
+          <label>Description</label>
+          <input
+            type="text"
+            value={createMeeting.Description}
+            onChange={(event) => {
+              setCreateMeeting({
+                ...createMeeting,
+                Description: event.target.value,
+              });
+            }}
+          />
+
           <label htmlFor="">Select Date</label>
           <input
             type="date"

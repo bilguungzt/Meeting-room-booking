@@ -182,8 +182,7 @@ export class TimelineResource extends SampleBase {
             justifyContent: "center",
             marginBottom: "20px",
             paddingBottom: "20px",
-            borderBottom: "5px solid black",
-            gridTemplateColumns: "1fr 1fr",
+            gridTemplateColumns: "1fr",
           }}
         >
           <CRUDrooms />
