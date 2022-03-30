@@ -15,14 +15,19 @@ const CRUDmeetings = () => {
     Id: "",
     RoomId: "",
     EndTime: "",
+    isReadonly: true,
   });
   const [date, setDate] = React.useState("");
   const [startSelected, setStartSelected] = React.useState("");
   const [endSelected, setEndSelected] = React.useState("");
-
+  //ISO TO LOCAL
+  const startTime = new Date(createMeeting.StartTime);
+  const greaterDate =
+    startTime.setHours(0, 0, 0, 0) >= new Date().setHours(0, 0, 0, 0);
   //VALIDATOR
   React.useEffect(() => {
     if (
+      greaterDate &&
       createMeeting.Description &&
       startSelected &&
       createMeeting.RoomId &&
@@ -38,6 +43,7 @@ const CRUDmeetings = () => {
       setCreateMeeting({ ...createMeeting, Id: id });
     } else {
       setValidated(0);
+      // console.log(createMeeting);
     }
   }, [
     createMeeting.Description,
@@ -46,6 +52,7 @@ const CRUDmeetings = () => {
     createMeeting.Subject,
     createMeeting.StartTime,
     date,
+    greaterDate,
   ]);
   ///DELETE Meeting DATA
   const deleteStudent = (id) => {
@@ -71,14 +78,14 @@ const CRUDmeetings = () => {
   };
   //FILTER MEETINGS
   let filteredMeetings = meetings?.filter((data) => {
-    var startTimeISOString = data.StartTime;
-    var startTime = new Date(startTimeISOString);
+    const startTimeISOString = data.StartTime;
+    const startTime = new Date(startTimeISOString);
     // console.log(
     //   startTime.setHours(0, 0, 0, 0),
     //   new Date().setHours(0, 0, 0, 0)
     // );
     const condition =
-      startTime.setHours(0, 0, 0, 0) <= new Date().setHours(0, 0, 0, 0);
+      startTime.setHours(0, 0, 0, 0) >= new Date().setHours(0, 0, 0, 0);
     // console.log(condition);
     return condition;
   });
@@ -147,15 +154,13 @@ const CRUDmeetings = () => {
             type="date"
             onChange={(e) => {
               setDate(e.target.value);
-
               setCreateMeeting({
                 ...createMeeting,
-                StartTime: `${date}T${startSelected}`,
+                EndTime: `${e.target.value}T${endSelected}`,
               });
-
               setCreateMeeting({
                 ...createMeeting,
-                EndTime: `${date}T${endSelected}`,
+                StartTime: `${e.target.value}T${startSelected}`,
               });
 
               //   console.log(date);

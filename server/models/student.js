@@ -7,9 +7,10 @@ const studentSchema = mongoose.Schema(
     StartTime: String,
     EndTime: String,
     RoomId: Number,
+    isReadonly: Boolean,
   }
   // subjects: [String],
 );
 
-const student = mongoose.model("student", studentSchema);
+const student = mongoose.model("meeting", studentSchema);
 export default student;

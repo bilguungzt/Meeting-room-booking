@@ -34,32 +34,6 @@ export class TimelineResource extends SampleBase {
     super(...arguments);
 
     this.ownerData = this.remoteroomsData;
-    // [
-    //   {
-    //     text: "Jammy",
-    //     id: 1,
-    //     color: "#ea7a57",
-    //     capacity: 20,
-    //     type: "Conference",
-    //   },
-    //   { text: "Tweety", id: 2, color: "#7fa900", capacity: 7, type: "Cabin" },
-    //   { text: "Nestle", id: 3, color: "#5978ee", capacity: 5, type: "Cabin" },
-    //   {
-    //     text: "Phoenix",
-    //     id: 4,
-    //     color: "#fec200",
-    //     capacity: 15,
-    //     type: "Conference",
-    //   },
-    //   {
-    //     text: "Mission",
-    //     id: 5,
-    //     color: "#df5286",
-    //     capacity: 25,
-    //     type: "Conference",
-    //   },
-    //   { text: "Hangout", id: 6, color: "#00bdae", capacity: 10, type: "Cabin" },
-    // ];
   }
 
   getRoomName(value) {
@@ -73,7 +47,7 @@ export class TimelineResource extends SampleBase {
   }
   isReadOnly(endDate) {
     //READ ONLY DATE
-    return endDate < new Date(2021, 6, 31, 0, 0);
+    return endDate > new Date(2021, 6, 31, 0, 0);
   }
   resourceHeaderTemplate(props) {
     return (
@@ -172,7 +146,6 @@ export class TimelineResource extends SampleBase {
                     description: { title: "Comments", name: "Description" },
                     startTime: { title: "From", name: "StartTime" },
                     endTime: { title: "To", name: "EndTime" },
-                    isReadonly: true,
                   },
                 }}
                 eventRendered={this.onEventRendered.bind(this)}
