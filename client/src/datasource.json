@@ -1,0 +1,12 @@
+{
+  "roomData": [
+    {
+      "Id": 49,
+      "Subject": "HR Meeting",
+      "Description": "Meeting to discuss HR plans.",
+      "StartTime": "2021-08-02T09:00:00.000Z",
+      "EndTime": "2021-08-02T10:30:00.000Z",
+      "RoomId": 6
+    }
+  ]
+}
