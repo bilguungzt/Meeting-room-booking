@@ -54,9 +54,9 @@ const CRUDrooms = () => {
       const id = parseInt(slic);
       console.log(id);
       setValidated(true);
-      setCreateRoom({ ...createRoom, color: randomcolor() });
       setCreateRoom({ ...createRoom, id: id });
     } else {
+      setCreateRoom({ ...createRoom, color: randomcolor() });
       setValidated(0);
     }
   }, [createRoom.text, createRoom.capacity, createRoom.type]);
