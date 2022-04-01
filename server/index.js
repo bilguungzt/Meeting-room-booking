@@ -17,15 +17,15 @@ app.use("/students", studentRoutes);
 app.use("/roomss", roomsRoutes);
 
 const CONNECTION_URL =
-  "mongodb://scheduler:scheduler123@scheduler-shard-00-00.kj21q.mongodb.net:27017,scheduler-shard-00-01.kj21q.mongodb.net:27017,scheduler-shard-00-02.kj21q.mongodb.net:27017/scheduler?ssl=true&replicaSet=atlas-fwehe4-shard-0&authSource=admin&retryWrites=true&w=majority;";
+    "mongodb+srv://bilguun:bilguungzt@cluster0.mzi4z.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 mongoose
-  .connect(CONNECTION_URL)
-  .then(() => {
-    console.log(`Connection sucessful and port is ${PORT}`);
-  })
-  .catch((error) => console.log(error.message));
+    .connect(CONNECTION_URL)
+    .then(() => {
+        console.log(`Connection sucessful and port is ${PORT}`);
+    })
+    .catch((error) => console.log(error.message));
 
 app.listen(PORT, () => {
-  console.log(`Express is running on port ${PORT}`);
+    console.log(`Express is running on port ${PORT}`);
 });

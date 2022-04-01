@@ -134,7 +134,7 @@ export class TimelineResource extends SampleBase {
                 width="100%"
                 height="auto"
                 // selectedDate={new Date(2021, 7, 2)}
-                workHours={{ start: "08:00", end: "21:00" }}
+                workHours={{ start: "08:00", end: "21:00", highlight: true }}
                 timeScale={{ interval: 60, slotCount: 1 }}
                 resourceHeaderTemplate={this.resourceHeaderTemplate.bind(this)}
                 eventSettings={{
